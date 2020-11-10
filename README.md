@@ -1,4 +1,4 @@
-gsp
+# GSP
 
 > **g**it **s**imple **p**ackager
 

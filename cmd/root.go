@@ -28,8 +28,8 @@ var (
 	dryRun  bool
 
 	rootCmd = &cobra.Command{
-		Use:   "gsp-archive",
-		Short: "gsp-archive - git simple packager",
+		Use:   "gsp",
+		Short: "gsp - git simple packager",
 
 		Run: func(cmd *cobra.Command, args []string) {
 			changedFilesWithPossibleDuplicates := getChangedFileNames(config)

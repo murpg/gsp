@@ -4,8 +4,7 @@
 
 ## Config example
 
-The following file ( .gsp-config.json ) should be in the same directory as the gsp binary and the root of your home directory.   
-If you are on Windows that would be C:/Users/$username
+The following file ( .gsp-config.json ) should be in the same directory as the gsp binary and the root of your home directory. If you are on Windows that would be C:/Users/$username. The executable file ( gsp.exe ) needs to be in a directory that is on the path variable.  
 
 To use the commits count from the HEAD to the commit you want to stop at, set the commitsCount value in your ( .gsp-config.json ) file and leave the getHashNewest and gitHashOldest values empty in your jason file.  If you want to use the hash keys to fine tune your packages here are some things you must do. The easiest way is to use the Git GUI.  
 You access this by running:  

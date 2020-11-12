@@ -8,7 +8,7 @@ before:
   hooks:
     - go mod tidy
 builds:
-  - binary: '{{ .ProjectName }}_{{ .Version }}'
+  - binary: '{{ .ProjectName }}-unsigned_{{ .Version }}'
     flags:
       - -trimpath
     goarch:
@@ -19,6 +19,9 @@ builds:
       - linux
       - windows
     mod_timestamp: '{{ .CommitTimestamp }}'
+    hooks:
+      post:
+        - osslsigncode sign -h sha512 -certs "$SIGNING_CERT" -key "$SIGNING_KEY" -n "GSP - Git Simple Packager" -i "https://websbygeorge.com" -t "http://timestamp.comodoca.com/authenticode" -in {{ .ProjectName }}-unsigned_{{ .Version }} -out {{ .ProjectName }}_{{ .Version }}
 changelog:
   skip: true
 checksum:

@@ -20,6 +20,9 @@ jobs:
         with:
           go-version: 1.14
 
+      - name: Install osslsigncode
+        run: sudo apt-get update && sudo apt-get install osslsigncode -qq -y
+
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
         with:
@@ -27,3 +30,5 @@ jobs:
           args: release -f .goreleaser.yml --rm-dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SIGNING_CERT: ${{ secrets.SIGNING_CERT }}
+          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}

@@ -21,7 +21,7 @@ builds:
     mod_timestamp: '{{ .CommitTimestamp }}'
     hooks:
       post:
-        - osslsigncode sign -h sha512 -certs "$SIGNING_CERT" -key "$SIGNING_KEY" -n "GSP - Git Simple Packager" -i "https://websbygeorge.com" -t "http://timestamp.comodoca.com/authenticode" -in {{ .ProjectName }}-unsigned_{{ .Version }} -out {{ .ProjectName }}_{{ .Version }}
+        - osslsigncode sign -h sha512 -certs "$SIGNING_CERT" -key "$SIGNING_KEY" -n "GSP - Git Simple Packager" -i "https://websbygeorge.com" -t "http://timestamp.comodoca.com/authenticode" -in {{ .Path }}/{{ .ProjectName }}-unsigned_{{ .Version }} -out {{ .Path }}/{{ .ProjectName }}_{{ .Version }}
 changelog:
   skip: true
 checksum:

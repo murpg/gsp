@@ -8,7 +8,7 @@ before:
   hooks:
     - go mod tidy
 builds:
-  - binary: '{{ .ProjectName }}-unsigned_{{ .Version }}'
+  - binary: '{{ .ProjectName }}-{{ .Version }}'
     flags:
       - -trimpath
     goarch:
@@ -21,7 +21,7 @@ builds:
     mod_timestamp: '{{ .CommitTimestamp }}'
     hooks:
       post:
-        - .github/sign-windows.sh
+        - .github/sign-windows.sh {{ .Path }}
 changelog:
   skip: true
 checksum:

@@ -21,11 +21,7 @@ builds:
     mod_timestamp: '{{ .CommitTimestamp }}'
     hooks:
       post:
-        - echo "{{ .Path }}"
-        - echo "{{ .Dir }}"
-    #hooks:
-    #  post:
-    #    - osslsigncode sign -h sha512 -certs "$SIGNING_CERT" -key "$SIGNING_KEY" -n "GSP - Git Simple Packager" -i "https://websbygeorge.com" -t "http://timestamp.comodoca.com/authenticode" -in {{ .Path }} -out {{ .Path }}/{{ .ProjectName }}_{{ .Version }}
+        - .github/sign-windows.sh
 changelog:
   skip: true
 checksum:
